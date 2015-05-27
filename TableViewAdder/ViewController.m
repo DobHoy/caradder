@@ -36,6 +36,18 @@
         self.editCar = [UIButton buttonWithType:UIButtonTypeInfoDark];
         
         self.footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+        //create a view that's the width of device.. independent of size?
+        
+        self.editCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.insertCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        [self.editCar setTag:1];
+        [self.insertCar setTag:2];
+        
+        [self.editCar addTarget:self action:@selector(editCar:) forControlEvents:UIControlEventTouchUpInside];
+        [self.insertCar addTarget:self action:@selector(insertCar:) forControlEvents:UIControlEventTouchUpInside];
+
+        
         [self.footerView addSubview:self.insertCar];
         [self.footerView addSubview:self.editCar];
         self.tableView.tableFooterView  = self.footerView;
@@ -46,6 +58,15 @@
     
     return self;
 }
+
+- (void) editCar: (UIButton *) button {
+    
+}
+
+- (void) insertCar: (UIButton *) button {
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
