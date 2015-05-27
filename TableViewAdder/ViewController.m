@@ -47,7 +47,7 @@
         [self.editCar addTarget:self action:@selector(editCar:) forControlEvents:UIControlEventTouchUpInside];
         [self.insertCar addTarget:self action:@selector(insertCar:) forControlEvents:UIControlEventTouchUpInside];
 
-        
+        //right way to add two buttons programmtically to the footer view of a table view?
         [self.footerView addSubview:self.insertCar];
         [self.footerView addSubview:self.editCar];
         self.tableView.tableFooterView  = self.footerView;
