@@ -14,8 +14,8 @@
 
 }
 
-@property (nonatomic, strong) UIButton *insertCar;
-@property (nonatomic, strong) UIButton *editCar;
+@property (nonatomic, strong) UIButton *insertCarButton;
+@property (nonatomic, strong) UIButton *editCarButton;
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) NSArray *favoriteCars;
 
@@ -32,24 +32,30 @@
     if(self) {
         
         self.favoriteCars = @[@"Lexus", @"Toyata", @"Mercedes", @"BMW", @"Audi"];
-        self.insertCar = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        self.editCar = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        self.insertCarButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        self.editCarButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         
         self.footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
         //create a view that's the width of device.. independent of size?
         
-        self.editCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.insertCar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.editCarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.insertCarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
-        [self.editCar setTag:1];
-        [self.insertCar setTag:2];
+        [self.editCarButton setTag:1];
+        [self.insertCarButton setTag:2];
         
-        [self.editCar addTarget:self action:@selector(editCar:) forControlEvents:UIControlEventTouchUpInside];
-        [self.insertCar addTarget:self action:@selector(insertCar:) forControlEvents:UIControlEventTouchUpInside];
-
-        //right way to add two buttons programmtically to the footer view of a table view?
-        [self.footerView addSubview:self.insertCar];
-        [self.footerView addSubview:self.editCar];
+        [self.editCarButton addTarget:self action:@selector(editCar:) forControlEvents:UIControlEventTouchUpInside];
+        [self.insertCarButton addTarget:self action:@selector(insertCar:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.editCarButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [self.insertCarButton setTitle:@"Insert" forState:UIControlStateNormal];
+        
+        [self.editCarButton sizeToFit];
+        [self.insertCarButton sizeToFit];
+        
+        //right way to add two buttons programmtically to the footer view of a table view?AL
+        [self.footerView addSubview:self.insertCarButton];
+        [self.footerView addSubview:self.editCarButton];
         self.tableView.tableFooterView  = self.footerView;
         
     }
@@ -60,10 +66,11 @@
 }
 
 - (void) editCar: (UIButton *) button {
-    
+    NSLog(@"edit button touched");
 }
 
 - (void) insertCar: (UIButton *) button {
+    NSLog(@"insert button touched");
     
 }
 
