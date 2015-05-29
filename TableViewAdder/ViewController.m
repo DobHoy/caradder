@@ -53,9 +53,18 @@
         [self.editCarButton sizeToFit];
         [self.insertCarButton sizeToFit];
         
+        self.editCarButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.insertCarButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.footerView.translatesAutoresizingMaskIntoConstraints = NO;
+        
         //right way to add two buttons programmtically to the footer view of a table view?AL
         [self.footerView addSubview:self.insertCarButton];
         [self.footerView addSubview:self.editCarButton];
+        
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_editCarButton, _insertCarButton, _footerView);
+        [self.footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_editCarButton]-(200)-[_insertCarButton]|" options:kNilOptions metrics:nil views:viewDictionary]];
+        [self.footerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_editCarButton]|" options:NSLayoutFormatAlignAllTop metrics:nil views:viewDictionary]];
+
         self.tableView.tableFooterView  = self.footerView;
         
     }
