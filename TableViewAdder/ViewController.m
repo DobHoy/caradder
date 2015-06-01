@@ -41,6 +41,12 @@
         self.editCarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.insertCarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
+        self.editCarButton.frame = CGRectMake(0, 0, 100, 20);
+        self.insertCarButton.frame = CGRectMake(110, 0, 100, 20);
+        
+        [self.editCarButton setBackgroundColor:[UIColor lightGrayColor]];
+        [self.insertCarButton setBackgroundColor:[UIColor lightGrayColor]];
+        
         [self.editCarButton setTag:1];
         [self.insertCarButton setTag:2];
         
